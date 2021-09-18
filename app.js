@@ -1,25 +1,23 @@
-let colors = ["red", "green", "yellow", "blue", "pink"];
+const colors = ["red", "green", "yellow", "blue", "pink", "purple"];
 const search = document.querySelector("#colorSearch");
-let playground = document.querySelector("#test1");
+const playground = document.querySelector("#container");
 
-function createBox() {
+window.onload = function () {
   for (let i = 0; i < colors.length; i++) {
     // create new element
-    const newBox = document.createElement("div");
+    const colorBox = document.createElement("div");
     // add some content
     const newContent = document.createTextNode(`${colors[i]}`);
 
     // append child
-    newBox.appendChild(newContent);
+    colorBox.appendChild(newContent);
 
-    newBox.style.backgroundColor = colors[i];
-    newBox.classList.add(`color-${i}`);
+    colorBox.style.backgroundColor = colors[i];
+    colorBox.classList.add(`color-${i}`);
 
-    playground.appendChild(newBox);
+    playground.appendChild(colorBox);
   }
-}
-
-createBox();
+};
 
 search.addEventListener("keyup", function (e) {
   const term = e.target.value.toLowerCase();
